@@ -1,0 +1,15 @@
+<resources>
+    <string name="ip">localhost</string>
+    <string name="dbname"></string>
+    <string name="app_name">ComputerDIY</string>
+    <string name="button_cpu">CPU</string>
+    <string name="button_mainboard">主板</string>
+    <string name="button_graphicscard">显卡</string>
+    <string name="button_ram">内存</string>
+    <string name="button_HHD">机械硬盘</string>
+    <string name="button_SSD">固态硬盘</string>
+    <string name="button_power">电源</string>
+    <string name="button_case">机箱</string>
+    <string name="button_display">显示器</string>
+
+</resources>
