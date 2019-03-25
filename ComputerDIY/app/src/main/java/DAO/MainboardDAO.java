@@ -2,7 +2,7 @@ package DAO;
 import android.util.Log;
 
 import com.example.computerdiy.DBUtil;
-import com.example.computerdiy.MAINBOARD;
+import objects.MAINBOARD;
 import com.example.computerdiy.R;
 
 
@@ -30,10 +30,10 @@ public class MainboardDAO{
 
             @Override
             public List<MAINBOARD> call() {
-                List<MAINBOARD> HHDList = new ArrayList<MAINBOARD>();
+                List<MAINBOARD> MAINBOARDList = new ArrayList<MAINBOARD>();
                 try {
                     Connection cn = DBUtil.getConn();
-                    String sql = "select * from hhd";
+                    String sql = "select * from table_mainboard";
                     Statement st = (Statement) cn.createStatement();
                     ResultSet rs = st.executeQuery(sql);
 
@@ -41,13 +41,12 @@ public class MainboardDAO{
                     while (rs.next()) {
                         MAINBOARD u = new MAINBOARD();
                         u.setModel(rs.getString("型号"));
-                        Log.i("Mainactivity",u.getModel());
                         u.setBrand(rs.getString("品牌"));
                         u.setPlatform(rs.getString("平台"));
                         u.setSize(rs.getString("尺寸"));
                         u.setPrice(rs.getInt("价格"));
                         u.setImage(images[0]);
-                        HHDList.add(u);
+                        MAINBOARDList.add(u);
                     }
                     DBUtil.closeConn(cn);//关闭连接
                 } catch (SQLException e) {

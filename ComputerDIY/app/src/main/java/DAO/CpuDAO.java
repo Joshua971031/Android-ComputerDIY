@@ -1,7 +1,7 @@
 package DAO;
 import android.util.Log;
 
-import com.example.computerdiy.CPU;
+import objects.CPU;
 import com.example.computerdiy.DBUtil;
 import com.example.computerdiy.R;
 
@@ -24,12 +24,7 @@ public class CpuDAO{
     public List<CPU> list() {
         //创建一个定长的核心线程和最大线程数都是1的FixedThreadPool线程池,使用callable和future.get()方法从线程返回值，从而获取数据库的值
         ExecutorService executorService = Executors.newFixedThreadPool(2);
-        /*String[] models = {"i9-9900k", "i7-7700k", "i5-3470"};
-        String[] brands = {"Intel", "AMD", "Intel"};
-        int[] images = {R.drawable.i9_9900k, R.drawable.i9_9900k, R.drawable.i9_9900k};
-        String[] frequency = {"3.6GHz", "4.2GHz", "3.2GHz"};
-        int[] prices={5000,2700,500};
-*/
+
         Callable<List<CPU>> callable = new Callable<List<CPU>>() {
 
             @Override
@@ -38,7 +33,7 @@ public class CpuDAO{
                 try {
                     //Class.forName("com.mysql.jdbc.Driver");
                     Connection cn = DBUtil.getConn();//DriverManager.getConnection("jdbc:mysql://192.168.1.232:3306/computer_diy?useSSL=false", "Joshua", "123");
-                    String sql = "select * from cpu";
+                    String sql = "select * from table_cpu";
                     Statement st = (Statement) cn.createStatement();
                     ResultSet rs = st.executeQuery(sql);
 
@@ -46,7 +41,6 @@ public class CpuDAO{
                     while (rs.next()) {
                         CPU u = new CPU();
                         u.setModel(rs.getString("型号"));
-                        Log.i("Mainactivity",u.getModel());
                         u.setBrand(rs.getString("品牌"));
                         u.setFrequency(rs.getString("主频"));
                         u.setPrice(rs.getInt("价格"));

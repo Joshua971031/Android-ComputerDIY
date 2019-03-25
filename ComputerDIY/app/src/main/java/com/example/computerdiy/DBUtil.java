@@ -6,9 +6,9 @@ import java.sql.SQLException;
 public class DBUtil {
     // 定义数据库连接参数
     public static final String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
-    public static final String URL = "jdbc:mysql://10.164.4.220:3306/computer_diy";
-    public static final String USERNAME = "Joshua";
-    public static final String PASSWORD = "123";
+    public static final String URL = "jdbc:mysql://192.168.137.135:3306/computer_diy";
+    public static final String USERNAME = "guest";
+    public static final String PASSWORD = "guest";
 
     // 注册数据库驱动
     static {
